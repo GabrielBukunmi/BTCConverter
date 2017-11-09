@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BTC Converter</string>
+    <string name="actionbar_title"> Cryptocurrency Converter</string>
+    <string name="choose_currency">Choose Currency</string>
+    <string name="convert_to">Convert to:</string>
+    <string name="create_card">Create Card</string>
+    <string name="remove_card">Remove Card</string>
+    <string name="convert">Convert</string>
+    <string name="refresh">Refresh</string>
+</resources>

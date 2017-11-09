@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#424242"
+   android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.example.brainbell.btcconverter.controller.ConversionScreenActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#212121"
+    android:orientation="horizontal"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/baseCurrency"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+       android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        tools:text="BTC:"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="105.6"
+        android:textSize="20sp"
+        android:inputType="phone"
+        android:textColor="#fff"
+        android:textColorHint="#fff"/>
+</LinearLayout>
+
+    <Button
+        android:id="@+id/convert_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="#bf360c"
+        android:padding="16dp"
+        android:text="@string/convert"
+        android:textAllCaps="true"
+        android:onClick="Convert"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        />
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/conversion_result_circle"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            tools:text="11678.8 NGN"
+            android:visibility="gone"
+            />
+
+
+</LinearLayout>
