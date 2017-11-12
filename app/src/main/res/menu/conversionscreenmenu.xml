@@ -8,4 +8,9 @@
         android:title="@string/refresh"
         android:id="@+id/refresh"
         android:icon="@drawable/refresh_icon"/>
+    <item
+        app:showAsAction="never"
+        android:orderInCategory="100"
+        android:title="@string/about"
+        android:id="@+id/About"/>
 </menu>

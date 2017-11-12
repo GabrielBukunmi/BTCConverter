@@ -7,4 +7,16 @@
     <string name="remove_card">Remove Card</string>
     <string name="convert">Convert</string>
     <string name="refresh">Refresh</string>
+    <string name="hint">105.7</string>
+    <string name="image">image</string>
+    <string name="vs">VS</string>
+    <string name="About"> This is a simple app that can convert
+        two cryptocurrencies (BTC and ETH)
+            to 20 real currencies (including the Nigerian Naira) in real time using the cryptocompare API</string>
+    <string name="supported_currencies"> Supported Currencies</string>
+    <string name="currencies"> NGN, MYR, BRL, ZAR, RUB, TRY, NOK, HKD, SGD,
+                NZD , SEK , JPY ,MXN ,AUD , CHF, USD, EUR , CAD, CNY</string>
+    <string name="exit"> Exit</string>
+    <string name="about"> About</string>
+
 </resources>

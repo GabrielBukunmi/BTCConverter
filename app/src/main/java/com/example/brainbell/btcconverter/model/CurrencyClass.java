@@ -3,10 +3,6 @@ package com.example.brainbell.btcconverter.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by BRAINBELL on 04-Nov-17.
- */
-
 public class CurrencyClass {
 
     @SerializedName("USD")
@@ -116,6 +112,8 @@ public class CurrencyClass {
         this.cAD=0.0;
         this.cNY=0.0;
     }
+    /*
+    * getter methods for the real currencies*/
     public Double getUSD() {
         return uSD;
     }

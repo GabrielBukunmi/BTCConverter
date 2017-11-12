@@ -1,5 +1,6 @@
 package com.example.brainbell.btcconverter.controller;
 
+import android.app.Dialog;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -37,18 +39,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.R.attr.key;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static android.os.Build.VERSION_CODES.M;
-import static android.view.animation.AnimationUtils.loadAnimation;
-import static com.example.brainbell.btcconverter.R.id.refresh;
 
 public class MainActivity extends AppCompatActivity {
     String[] currencyNames = {"USD", "CAD", "EUR", "GBP", "CNY", "CHF", "AUD", "JPY", "SEK", "MXN", "NZD",
             "SGD", "HKD", "NOK", "TRY", "RUB", "ZAR", "BRL", "MYR", "NGN"
     };
     String[] BaseCurrency = {"BTC", "ETH"};
-    ArrayList<Double> mList = new ArrayList<Double>();
+    ArrayList<Double> mList = new ArrayList<>();
     ItemResponse itemResponse;
     Adapter listAdapter;
     Spinner spinner1;
@@ -58,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
     CurrencyClass eTH;
     public String spinner2text;
     public String spinner1text;
-    private Animation rotate;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listAdapter = new Adapter(this);
+        dialog= new Dialog(this);
         bTC=new CurrencyClass();
         eTH= new CurrencyClass();
         loadJSON();
@@ -122,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadJSON() {
         try {
-            Client Client = new Client();
+            Client client = new Client();
             Service apiService = Client.getClient().create(Service.class);
             Call<ItemResponse> call = apiService.getItemResponse();
             call.enqueue(new Callback<ItemResponse>() {
@@ -141,14 +139,11 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-
-
         } catch (Exception exception) {
             Log.d("Error", exception.getMessage());
             Toast.makeText(this,exception.toString(),Toast.LENGTH_SHORT).show();
         }
     }
-
 
     public double getRate(String key) throws NullPointerException{
         double rate = 0.0;
@@ -303,6 +298,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 loadJSON();
+                return true;
+            }
+
+        });
+        MenuItem menuItem2=menu.findItem(R.id.About);
+        menuItem2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                    dialog.setContentView(R.layout.about);
+                dialog.setTitle(getString(R.string.about));
+                dialog.setCancelable(false);
+                TextView textView= (TextView)dialog.findViewById(R.id.exit);
+                textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
                 return true;
             }
         });

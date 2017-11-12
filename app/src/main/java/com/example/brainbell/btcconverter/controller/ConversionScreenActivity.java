@@ -15,13 +15,8 @@ import android.widget.Toast;
 
 import com.example.brainbell.btcconverter.R;
 
-import org.w3c.dom.Text;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
-import java.util.ArrayList;
-
-import static com.example.brainbell.btcconverter.R.id.textView;
-import static com.example.brainbell.btcconverter.R.id.visible;
-import static java.lang.Integer.parseInt;
 
 public class ConversionScreenActivity extends AppCompatActivity {
     TextView baseCurrency;
@@ -53,29 +48,25 @@ public class ConversionScreenActivity extends AppCompatActivity {
     public void Convert(View view) {
         String userInput = editText.getText().toString();
 
-        try {
-            if (userInput.equals("")){
+        if(rate==0){
+            resultText.setVisibility(View.GONE);
+            Toast.makeText(this,"No internet connection",Toast.LENGTH_SHORT).show();
+        }else {
+            try {
+                if (userInput.equals("")) {
+                    Toast.makeText(this, "Field required", Toast.LENGTH_SHORT).show();
+                    userinput = Double.parseDouble(userInput);
+                } else {
+                    userinput = Double.parseDouble(userInput);
+                    result = rate * userinput;
+                    resultText = (TextView) findViewById(R.id.result_text);
+                    resultText.setVisibility(View.VISIBLE);
+                    resultText.setText(result + spinner2text);
+                }
+
+            } catch (NumberFormatException ex) {
                 Toast.makeText(this, "Field required", Toast.LENGTH_SHORT).show();
-                userinput = Double.parseDouble(userInput);
-            }else {
-                userinput=Double.parseDouble(userInput);
-                result = rate * userinput;
-                resultText = (TextView) findViewById(R.id.result_text);
-                resultText.setVisibility(View.VISIBLE);
-                resultText.setText(result + spinner2text);
             }
-
-        } catch (NumberFormatException ex) {
-                Toast.makeText(this, "Field required", Toast.LENGTH_SHORT).show();
         }
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.conversionscreenmenu,menu);
-        MenuItem menuItem=menu.findItem(R.id.refresh);
-
-        return true;
     }
 }

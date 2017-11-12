@@ -9,7 +9,6 @@
     android:layout_marginTop="10dp"
     android:clickable="true"
     app:cardBackgroundColor="#ffab91"
-    android:elevation="60dp"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground">
 
@@ -34,7 +33,7 @@
             android:layout_weight="1"
             android:id="@+id/vs"
             android:textSize="30sp"
-            android:text="VS"/>
+            android:text="@string/vs"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -48,6 +47,7 @@
     </LinearLayout>
     <ImageView
         android:layout_width="30dp"
+        android:contentDescription="@string/image"
         android:layout_height="30dp"
         android:id="@+id/remove_card"
         android:layout_gravity="end"

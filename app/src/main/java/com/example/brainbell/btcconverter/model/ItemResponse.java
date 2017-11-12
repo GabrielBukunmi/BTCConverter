@@ -3,9 +3,6 @@ package com.example.brainbell.btcconverter.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by BRAINBELL on 01-Nov-17.
- */
 
 public class ItemResponse {
 
@@ -16,6 +13,7 @@ public class ItemResponse {
     @Expose
     private CurrencyClass eTH;
 
+    /*getter methods for BTC and ETH*/
     public CurrencyClass getBTC() {
         return bTC;
     }
