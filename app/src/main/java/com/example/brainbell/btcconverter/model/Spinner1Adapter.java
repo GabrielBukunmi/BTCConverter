@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 import com.example.brainbell.btcconverter.R;
 
-/**
- * Created by BRAINBELL on 03-Nov-17.
- */
 
 public class Spinner1Adapter extends BaseAdapter {
     Context context;
